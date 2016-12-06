@@ -8,6 +8,7 @@ var firstAndPike = {
   maxCustPerHour: 65,
   avgCookiesPerCust: 6.3,
   cookiesSoldPerHour: [],
+  totalCookies: 0,
   location: '1st and Pike',
 
   randCustPerHour: function() {
@@ -20,11 +21,10 @@ var firstAndPike = {
   },
 
   sumTotal: function () {
-    var sum = 0;
     for (var i = 0; i < hours.length; i++) {
-      sum += this.cookiesSoldPerHour[i];
+      this.totalCookies += this.cookiesSoldPerHour[i];
     }
-    return sum
+    return this.totalCookies
   },
 
 
@@ -35,17 +35,17 @@ var firstAndPike = {
     pEl.textContent = this.location;
     document.body.appendChild(pEl);
 
-    var ulEl = document.createElement('ul');
+    var ulEl = document.createElement('ul');  //could also create in sales.html and use id
     document.body.appendChild(ulEl);
 
     for (var i = 0; i < hours.length; i++) {
       var liEl = document.createElement('li');
-      liEl.textContent = hours[i] +': ' + this.cookiesSoldPerHour[i];
+      liEl.textContent = hours[i] +': ' + this.cookiesSoldPerHour[i] + ' cookies';
       ulEl.appendChild(liEl);
     }
 
     var liEll = document.createElement('li');
-    liEll.textContent = 'Total: ' + this.sumTotal();
+    liEll.textContent = 'Total: ' + this.sumTotal() + ' cookies';
     ulEl.appendChild(liEll);
 
   }
@@ -60,6 +60,7 @@ var seaTacAirport = {
   avgCookiesPerCust: 1.2,
   cookiesSoldPerHour: [],
   location: 'Sea Tac Airport',
+  totalCookies: 0,
 
   randCustPerHour: function() {
     for (var i =0; i < hours.length; i++) {
@@ -71,11 +72,10 @@ var seaTacAirport = {
   },
 
   sumTotal: function () {
-    var sum = 0;
     for (var i = 0; i < hours.length; i++) {
-      sum += this.cookiesSoldPerHour[i];
+      this.totalCookies += this.cookiesSoldPerHour[i];
     }
-    return sum
+    return this.totalCookies;
   },
 
 
@@ -86,17 +86,17 @@ var seaTacAirport = {
     pEl.textContent = this.location;
     document.body.appendChild(pEl);
 
-    var ulEl = document.createElement('ul');
+    var ulEl = document.createElement('ul');  //could also create in sales.html and use id
     document.body.appendChild(ulEl);
 
     for (var i = 0; i < hours.length; i++) {
       var liEl = document.createElement('li');
-      liEl.textContent = hours[i] +': ' + this.cookiesSoldPerHour[i];
+      liEl.textContent = hours[i] +': ' + this.cookiesSoldPerHour[i] + ' cookies';
       ulEl.appendChild(liEl);
     }
 
     var liEll = document.createElement('li');
-    liEll.textContent = 'Total: ' + this.sumTotal();
+    liEll.textContent = 'Total: ' + this.sumTotal() + ' cookies';
     ulEl.appendChild(liEll);
 
   }
@@ -111,6 +111,7 @@ var seattleCenter = {
   avgCookiesPerCust: 3.7,
   cookiesSoldPerHour: [],
   location: 'Seattle Center',
+  totalCookies: 0,
 
   randCustPerHour: function() {
     for (var i =0; i < hours.length; i++) {
@@ -122,11 +123,10 @@ var seattleCenter = {
   },
 
   sumTotal: function () {
-    var sum = 0;
     for (var i = 0; i < hours.length; i++) {
-      sum += this.cookiesSoldPerHour[i];
+      this.totalCookies += this.cookiesSoldPerHour[i];
     }
-    return sum
+    return this.totalCookies;
   },
 
 
@@ -137,17 +137,17 @@ var seattleCenter = {
     pEl.textContent = this.location;
     document.body.appendChild(pEl);
 
-    var ulEl = document.createElement('ul');
+    var ulEl = document.createElement('ul');  //could also create in sales.html and use id
     document.body.appendChild(ulEl);
 
     for (var i = 0; i < hours.length; i++) {
       var liEl = document.createElement('li');
-      liEl.textContent = hours[i] +': ' + this.cookiesSoldPerHour[i];
+      liEl.textContent = hours[i] +': ' + this.cookiesSoldPerHour[i] + ' cookies';
       ulEl.appendChild(liEl);
     }
 
     var liEll = document.createElement('li');
-    liEll.textContent = 'Total: ' + this.sumTotal();
+    liEll.textContent = 'Total: ' + this.sumTotal() + ' cookies';
     ulEl.appendChild(liEll);
 
   }
@@ -162,6 +162,7 @@ var capitolHill = {
   avgCookiesPerCust: 2.3,
   cookiesSoldPerHour: [],
   location: 'Capitol Hill',
+  totalCookies: 0,
 
   randCustPerHour: function() {
     for (var i =0; i < hours.length; i++) {
@@ -173,11 +174,10 @@ var capitolHill = {
   },
 
   sumTotal: function () {
-    var sum = 0;
     for (var i = 0; i < hours.length; i++) {
-      sum += this.cookiesSoldPerHour[i];
+      this.totalCookies += this.cookiesSoldPerHour[i];
     }
-    return sum
+    return this.totalCookies;
   },
 
 
@@ -188,17 +188,17 @@ var capitolHill = {
     pEl.textContent = this.location;
     document.body.appendChild(pEl);
 
-    var ulEl = document.createElement('ul');
+    var ulEl = document.createElement('ul');  //could also create in sales.html and use id
     document.body.appendChild(ulEl);
 
     for (var i = 0; i < hours.length; i++) {
       var liEl = document.createElement('li');
-      liEl.textContent = hours[i] +': ' + this.cookiesSoldPerHour[i];
+      liEl.textContent = hours[i] +': ' + this.cookiesSoldPerHour[i] + ' cookies';
       ulEl.appendChild(liEl);
     }
 
     var liEll = document.createElement('li');
-    liEll.textContent = 'Total: ' + this.sumTotal();
+    liEll.textContent = 'Total: ' + this.sumTotal() + ' cookies';
     ulEl.appendChild(liEll);
 
   }
@@ -213,6 +213,7 @@ var alki = {
   avgCookiesPerCust: 4.6,
   cookiesSoldPerHour: [],
   location: 'Alki',
+  totalCookies: 0,
 
   randCustPerHour: function() {
     for (var i =0; i < hours.length; i++) {
@@ -224,11 +225,10 @@ var alki = {
   },
 
   sumTotal: function () {
-    var sum = 0;
     for (var i = 0; i < hours.length; i++) {
-      sum += this.cookiesSoldPerHour[i];
+      this.totalCookies += this.cookiesSoldPerHour[i];
     }
-    return sum
+    return this.totalCookies;
   },
 
 
@@ -239,17 +239,17 @@ var alki = {
     pEl.textContent = this.location;
     document.body.appendChild(pEl);
 
-    var ulEl = document.createElement('ul');
+    var ulEl = document.createElement('ul');  //could also create in sales.html and use id
     document.body.appendChild(ulEl);
 
     for (var i = 0; i < hours.length; i++) {
       var liEl = document.createElement('li');
-      liEl.textContent = hours[i] +': ' + this.cookiesSoldPerHour[i];
+      liEl.textContent = hours[i] +': ' + this.cookiesSoldPerHour[i] + ' cookies';
       ulEl.appendChild(liEl);
     }
 
     var liEll = document.createElement('li');
-    liEll.textContent = 'Total: ' + this.sumTotal();
+    liEll.textContent = 'Total: ' + this.sumTotal() + ' cookies';
     ulEl.appendChild(liEll);
 
   }
