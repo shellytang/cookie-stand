@@ -2,6 +2,7 @@
 
 var hours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm']
 var allStores = []
+// var storeTable = document.getElementById('storeTable')
 
 // create constructor
 function Store(location,minCustPerHour,maxCustPerHour,avgCookiesPerCustlocation) {
@@ -10,6 +11,7 @@ function Store(location,minCustPerHour,maxCustPerHour,avgCookiesPerCustlocation)
   this.maxCustPerHour = maxCustPerHour;
   this.avgCookiesPerCustlocation = avgCookiesPerCustlocation;
   this.totalCookies = 0;
+
   this.cookiesSoldPerHour = function() {
     for (var i =0; i < hours.length; i++) {
       var randomCustomersPerHour = Math.floor(Math.random() * (this.maxCustPerHour - this.minCustPerHour + 1)) + this.minCustPerHour;
@@ -41,15 +43,26 @@ new Store('Alki', 2, 16, 4.6);
 function makeHeaderRow () {   //function for headerRow
 
   var storeTable = document.getElementById('storeTable');
-  var trEl = document.createElement('tr');
+  var trEl = document.createElement('tr'); //create tr for the header
+  var thEl = document.createElement('th');
+  thEl.textContent = ' ';
+  trEl.appendChild(thEl)[0]; //append empty cell for proper alignment
 
   for (var i = 0; i < hours.length; i++) {  //loop thru array for time in table header
-    var thEl = document.createElement('th');
-    thEl.textContent = hours[i];
+    thEl = document.createElement('th');
+    thEl.textContent = hours[i]; //create row for hours of operation
     trEl.appendChild(thEl);
   }
+
+  thEl = document.createElement('th');//make row for storing the daily location total
+  thEl.textContent = 'Daily Location Total';
+  trEl.appendChild(thEl);
+
   storeTable.appendChild(trEl);
 }
+
+
+
 
 // }
 makeHeaderRow();
@@ -57,7 +70,7 @@ makeHeaderRow();
 //loop through array in another function to render
 // // var storeTable = document.getElementById('storeTable');
 
-function fillData () {
+function storeRows () {
 
   for (var i = 0; i < allStores.length; i++) {  //create a for loop for data
 
@@ -71,7 +84,7 @@ function fillData () {
   }
 }
 
-fillData();
+storeRows();
 
   //     var ulEl = document.createElement('ul');  //could also create in sales.html and use id
   //     document.body.appendChild(ulEl);
