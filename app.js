@@ -26,11 +26,32 @@ function Store(location,minCustPerHour,maxCustPerHour,avgCookiesPerCust) {
       this.totalCookies += this.cookiesSoldPerHour[i];
     }
     return this.totalCookies;
-  }
+  };
   this.calCookiesPerHour();
   this.sumTotal();
   allStores.push(this);
-  this.render();
+  // this.render();
+
+  this.render = function () {
+    storeTable = document.getElementById('storeTable');
+    var trEl = document.createElement('tr');
+
+    var tdEl2 = document.createElement('td');
+    tdEl2.textContent = this.location;
+    trEl.appendChild(tdEl2); //append as the first item
+
+    for (var i = 0; i < hours.length; i++) {
+      var tdEl = document.createElement('td');
+      tdEl.textContent = this.cookiesSoldPerHour[i]; //this should loop thru each hour
+      trEl.appendChild(tdEl);
+    }
+
+    // var tdEl2 = document.createElement('td');
+    // tdEl2.textContent = this.location
+    // trEl.appendChild(tdEl2)[0]; //append as the first item
+
+    storeTable.appendChild(trEl);  //append the row you created to the table
+  }
 }
 
 //instances
@@ -40,38 +61,6 @@ new Store('Sea Tac Airport', 3, 24, 1.2);
 new Store('Seattle Center', 11, 38, 3.7);
 new Store('Capitol Hill', 20, 23, 2.3);
 new Store('Alki', 2, 16, 4.6);
-
-
-// function render {} //
-function render () {
-  for (var i = 0; i < allStores.length; i++) {
-    var trEl = document.createElement('tr');
-    var tdEl = document.createElement('td');
-    tdEl.textContent = this.cookiesSoldPerHour[i];
-    trEl.appendChild(tdEl);
-    storeTable.appendChild(trEl);
-  }
-
-}
-render();
-
-
-
-// //   render: function () {
-
-
-// //
-// //     for (var i = 0; i < hours.length; i++) {
-// //       var liEl = document.createElement('li');
-// //       liEl.textContent = hours[i] +': ' + this.cookiesSoldPerHour[i] + ' cookies';
-// //       ulEl.appendChild(liEl);
-// //     }
-// //
-// //     var liEll = document.createElement('li');
-// //     liEll.textContent = 'Total: ' + this.sumTotal() + ' cookies';
-// //     ulEl.appendChild(liEll);
-// //
-// //   }
 
 
 function makeHeaderRow () {   //function for headerRow
@@ -95,29 +84,34 @@ function makeHeaderRow () {   //function for headerRow
   storeTable.appendChild(trEl);
 }
 
-
-// }
 makeHeaderRow();
 
-//loop through array in another function to render
-// // var storeTable = document.getElementById('storeTable');
 
-function storeRows () {
-
-  for (var i = 0; i < allStores.length; i++) {  //create a for loop for data
-
-    var storeTable = document.getElementById('storeTable');
-    var trEl = document.createElement('tr');
-
-    var tdEl = document.createElement('td'); //location
-    tdEl.textContent = allStores[i].location;  //pulls the name from index as it iterates
-    trEl.appendChild(tdEl);
-    storeTable.appendChild(trEl);
+function makeAllStoreRow () {
+  for (var i = 0; i < allStores.length; i++) {
+    allStores[i].render();
   }
 }
 
-storeRows();
+makeAllStoreRow();
 
+//loop through array in another function to render ########################
+// function makeStore () {  //this should be for render
+//
+//   for (var i = 0; i < allStores.length; i++) {  //create a for loop for data
+//
+//     var storeTable = document.getElementById('storeTable');
+//     var trEl = document.createElement('tr');
+//
+//     var tdEl = document.createElement('td');
+//     tdEl.textContent = allStores[i].location;  // .location pulls the store name from index as it iterates
+//     trEl.appendChild(tdEl); //add cookiessoldperhour after this?
+//     storeTable.appendChild(trEl);
+//   }
+//   // second for loop to add cell data?
+// }
+//
+// makeStore();
 
 
 // yesterdays render for literal notation
