@@ -36,9 +36,9 @@ function Store(location,minCustPerHour,maxCustPerHour,avgCookiesPerCust) {
     storeTable = document.getElementById('storeTable');
     var trEl = document.createElement('tr');
 
-    var tdEl2 = document.createElement('td');
-    tdEl2.textContent = this.location;
-    trEl.appendChild(tdEl2); //append as the first item
+    tdEl = document.createElement('td');
+    tdEl.textContent = this.location;
+    trEl.appendChild(tdEl); //append as the first item
 
     for (var i = 0; i < hours.length; i++) {
       var tdEl = document.createElement('td');
@@ -46,9 +46,9 @@ function Store(location,minCustPerHour,maxCustPerHour,avgCookiesPerCust) {
       trEl.appendChild(tdEl);
     }
 
-    // var tdEl2 = document.createElement('td');
-    // tdEl2.textContent = this.location
-    // trEl.appendChild(tdEl2)[0]; //append as the first item
+    tdEl = document.createElement('td');
+    tdEl.textContent = this.sumTotal();
+    trEl.appendChild(tdEl);
 
     storeTable.appendChild(trEl);  //append the row you created to the table
   }
@@ -86,14 +86,28 @@ function makeHeaderRow () {   //function for headerRow
 
 makeHeaderRow();
 
-
 function makeAllStoreRow () {
   for (var i = 0; i < allStores.length; i++) {
     allStores[i].render();
   }
 }
-
 makeAllStoreRow();
+
+function makeFooterRow () {
+  storeTable = document.getElementById('storeTable');
+  var trEl = document.createElement('tr'); //create tr for the header
+  var tdEl = document.createElement('td');
+  tdEl.textContent = 'Totals';
+  trEl.appendChild(tdEl);
+
+  //make each total
+  storeTable.appendChild(trEl);
+}
+
+makeFooterRow();
+
+
+
 
 //loop through array in another function to render ########################
 // function makeStore () {  //this should be for render
