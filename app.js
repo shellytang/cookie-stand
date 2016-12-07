@@ -15,14 +15,14 @@ function Store(location,minCustPerHour,maxCustPerHour,avgCookiesPerCustlocation)
       var randomCustomersPerHour = Math.floor(Math.random() * (this.maxCustPerHour - this.minCustPerHour + 1)) + this.minCustPerHour;
       var cookiesPerHour = Math.ceil(randomCustomersPerHour * this.avgCookiesPerCust);
       this.cookiesSoldPerHour.push(cookiesPerHour);
-    };
+    }
 
-  this.sumTotal = function () {
+    this.sumTotal = function () {
       for (var i = 0; i < hours.length; i++) {
         this.totalCookies += this.cookiesSoldPerHour[i];
       }
-        return this.totalCookies;
-      }
+      return this.totalCookies;
+    }
   }
   allStores.push(this);
 }
@@ -36,29 +36,57 @@ new Store('Capitol Hill', 20, 23, 2.3);
 new Store('Alki', 2, 16, 4.6);
 
 
-//loop through array in another function to render
-// function render () {
-//
-// // var storeTable = document.getElementById('storeTable');
+// function render {} //
 
-  function makeHeaderRow () {   //function for headerRow
+function makeHeaderRow () {   //function for headerRow
 
-    var storeTable = document.getElementById('storeTable');
-    var trEl = document.createElement('tr');
+  var storeTable = document.getElementById('storeTable');
+  var trEl = document.createElement('tr');
 
-    for (var i = 0; i < hours.length; i++) {  //loop thru array for time in table header
-      var thEl = document.createElement('th');
-      thEl.textContent = hours[i];
-      trEl.appendChild(thEl);
-    }
-    storeTable.appendChild(trEl);
+  for (var i = 0; i < hours.length; i++) {  //loop thru array for time in table header
+    var thEl = document.createElement('th');
+    thEl.textContent = hours[i];
+    trEl.appendChild(thEl);
   }
+  storeTable.appendChild(trEl);
+}
 
 // }
 makeHeaderRow();
 
+//loop through array in another function to render
+// // var storeTable = document.getElementById('storeTable');
 
-allStores.render();
+function fillData () {
+
+  for (var i = 0; i < allStores.length; i++) {  //create a for loop for data
+
+    var storeTable = document.getElementById('storeTable');
+    var trEl = document.createElement('tr');
+
+    var tdEl = document.createElement('td'); //location
+    tdEl.textContent = allStores[i].location;  //pulls the name from index as it iterates
+    trEl.appendChild(tdEl);
+    storeTable.appendChild(trEl);
+  }
+}
+
+fillData();
+
+  //     var ulEl = document.createElement('ul');  //could also create in sales.html and use id
+  //     document.body.appendChild(ulEl);
+  //
+  //     for (var i = 0; i < hours.length; i++) {
+  //       var liEl = document.createElement('li');
+  //       liEl.textContent = hours[i] +': ' + this.cookiesSoldPerHour[i] + ' cookies';
+  //       ulEl.appendChild(liEl);
+  //     }
+  //
+  //     var liEll = document.createElement('li');
+  //     liEll.textContent = 'Total: ' + this.sumTotal() + ' cookies';
+  //     ulEl.appendChild(liEll);
+  //
+
 
 // yesterdays render for literal notation
 //
