@@ -2,7 +2,7 @@
 
 var hours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm']
 var allStores = []
-// var storeTable = document.getElementById('storeTable')
+var storeTable = document.getElementById('storeTable');
 
 // create constructor
 function Store(location,minCustPerHour,maxCustPerHour,avgCookiesPerCust) {
@@ -30,6 +30,7 @@ function Store(location,minCustPerHour,maxCustPerHour,avgCookiesPerCust) {
   this.calCookiesPerHour();
   this.sumTotal();
   allStores.push(this);
+  this.render();
 }
 
 //instances
@@ -43,16 +44,16 @@ new Store('Alki', 2, 16, 4.6);
 
 // function render {} //
 function render () {
-  this.randCustPerHour();
   for (var i = 0; i < allStores.length; i++) {
-    var liEl = document.createElement('li');
-    liEl.textContent = hours[i] +': ' + this.cookiesSoldPerHour[i] + ' cookies';
-    ulEl.appendChild(liEl);
-
+    var trEl = document.createElement('tr');
+    var tdEl = document.createElement('td');
+    tdEl.textContent = this.cookiesSoldPerHour[i];
+    trEl.appendChild(tdEl);
+    storeTable.appendChild(trEl);
   }
 
 }
-
+render();
 
 
 
