@@ -105,3 +105,33 @@ function makeFooterRow () {  //STRETCH GOAL! COMPLETE IN FREE TIME
   }
 }
 makeFooterRow();
+
+// Begin code for form ************
+//Global variables for DOM access
+
+var cookieForm = document.getElementById('cookieForm');
+// var newStoreLocation = event.target.storeLocation.value;
+// var newMinCustomer = parseInt(event.target.minCustomer.value);
+// var newMaxCustomer = parseInt(event.target.maxCustomer.value);
+// var newAvgCookiesPerCustomer = parseInt(event.target.avgCookiesPerCustomer.value);
+
+// // This function is the event handler for the submission, this will pass value into constructor
+function handleNewStoreSubmit(event) {
+  event.preventDefault(); //prevents reload of data
+  console.log('log of the event object', event);
+//   // console.log('log of the event.target', event.target);
+//   // console.log('log of the event.target.storeLocation', event.target.storeLocation);
+//   console.log('log of the event.target.storeLocation.value', event.target.storeLocation.value);
+  if (!event.target.storeLocation.value || !event.target.minCustomer.value || !event.target.maxCustomer.value || !event.target.avgCookiesPerCustomer.value) {
+    return alert('Fields cannot be empty!');  //does not allow empty values
+    //push or render values to table
+  }
+
+event.target.storeLocation.value = null; //clears the form fields
+event.target.minCustomer.value = null;
+event.target.maxCustomer.value = null;
+event.target.avgCookiesPerCustomer.value = null;
+
+}
+  //event listener
+cookieForm.addEventListener('submit', handleNewStoreSubmit);
