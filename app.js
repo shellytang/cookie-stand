@@ -21,10 +21,11 @@ function Store(location,minCustPerHour,maxCustPerHour,avgCookiesPerCust) {
   }
 
   this.sumTotal = function () {
+    this.calCookiesPerHour();
     for (var i = 0; i < hours.length; i++) {
       this.totalCookies += this.cookiesSoldPerHour[i];
     }
-    // console.log(this.totalCookies);
+    console.log(this.totalCookies);
     return this.totalCookies;
   };
   this.calCookiesPerHour();
@@ -98,7 +99,6 @@ function makeFooterRow () {  //STRETCH GOAL! COMPLETE IN FREE TIME
   var giantTotal = 0;
   for (var k = 0; k < allStores.length; k++) {
     giantTotal += allStores[k].totalCookies;
-    console.log(giantTotal);
   }
   thEl = document.createElement('th');
   thEl.textContent = giantTotal;
