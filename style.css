@@ -1,0 +1,12 @@
+th, td {
+  text-align: left;
+  border: 1px solid black;
+  empty-cells: show;
+}
+tr > th {
+  text-align: center;
+  color: blue;
+}
+table {
+  border: 2px solid black;
+}

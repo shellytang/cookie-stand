@@ -24,10 +24,10 @@ function Store(location,minCustPerHour,maxCustPerHour,avgCookiesPerCust) {
     for (var i = 0; i < hours.length; i++) {
       this.totalCookies += this.cookiesSoldPerHour[i];
     }
+    // console.log(this.totalCookies);
     return this.totalCookies;
   };
   this.calCookiesPerHour();
-  this.sumTotal();
   allStores.push(this);
 
   this.render = function () {
@@ -65,7 +65,7 @@ function makeHeaderRow () {   //function for headerRow
   }
 
   thEl = document.createElement('th');//make row for storing the daily location total
-  thEl.textContent = 'Daily Location Total';
+  thEl.textContent = 'Daily Total';
   trEl.appendChild(thEl);
   storeTable.appendChild(trEl); //append to table
 }
@@ -95,26 +95,40 @@ function makeFooterRow () {  //STRETCH GOAL! COMPLETE IN FREE TIME
     trEl.appendChild(thEl);
     storeTable.appendChild(trEl);
   }
-}
+  var giantTotal = 0;
+  for (var k = 0; k < allStores.length; k++) {
+    giantTotal += allStores[k].totalCookies;
+    console.log(giantTotal);
+  }
+  thEl = document.createElement('th');
+  thEl.textContent = giantTotal;
+  trEl.appendChild(thEl);
+  storeTable.appendChild(trEl);
+  // storeTable = document.getElementById('storeTable');
 
+
+}
+// create instances
 new Store('1st and Pike', 23, 65, 6.3);
 new Store('Sea Tac Airport', 3, 24, 1.2);
 new Store('Seattle Center', 11, 38, 3.7);
 new Store('Capitol Hill', 20, 23, 2.3);
 new Store('Alki', 2, 16, 4.6);
-// Begin code for form ************
-//Global variables for DOM access
+
 function handleNewStoreSubmit(event) {
   event.preventDefault(); //prevents reload of data
   // console.log('log of the event object', event);
-//   // console.log('log of the event.target', event.target);
+  // console.log('log of the event.target', event.target);
   // console.log('log of the event.target.storeLocation', event.target.storeLocation);
-  console.log('form button was clicked!');
-  console.log('log of the event.target.storeLocation.value', event.target.storeLocation.value);
+  // console.log('form button was clicked!');
+  // console.log('log of the event.target.storeLocation.value', event.target.storeLocation.value);
   if (!event.target.storeLocation.value || !event.target.minCustomer.value || !event.target.maxCustomer.value || !event.target.avgCookiesPerCustomer.value) {
     return alert('Fields cannot be empty!');
   }
-
+  if (isNaN(parseInt(event.target.minCustomer.value)) ||
+    isNaN(parseInt(event.target.maxCustomer.value)) || isNaN(parseInt(event.target.avgCookiesPerCustomer.value))) {
+    return alert('Please enter number values for Max, Min and Average.')
+  }
   var newStoreLocation = event.target.storeLocation.value;
   var newMinCustomer = parseInt(event.target.minCustomer.value);
   var newMaxCustomer = parseInt(event.target.maxCustomer.value);
@@ -127,18 +141,14 @@ function handleNewStoreSubmit(event) {
   nukeTable();
 
   new Store (newStoreLocation, newMinCustomer, newMaxCustomer, newAvgCookiesPerCustomer);
-
   makeHeaderRow();
   makeAllStoreRow();
   makeFooterRow();
-
   event.target.storeLocation.value = null; //clears the form fields
   event.target.minCustomer.value = null;
   event.target.maxCustomer.value = null;
   event.target.avgCookiesPerCustomer.value = null;
-
 }
-
 makeHeaderRow();
 makeAllStoreRow();
 makeFooterRow();
