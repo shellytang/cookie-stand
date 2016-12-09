@@ -51,12 +51,6 @@ function Store(location,minCustPerHour,maxCustPerHour,avgCookiesPerCust) {
   }
 }
 
-new Store('1st and Pike', 23, 65, 6.3);
-new Store('Sea Tac Airport', 3, 24, 1.2);
-new Store('Seattle Center', 11, 38, 3.7);
-new Store('Capitol Hill', 20, 23, 2.3);
-new Store('Alki', 2, 16, 4.6);
-
 function makeHeaderRow () {   //function for headerRow
   var storeTable = document.getElementById('storeTable');
   var trEl = document.createElement('tr'); //create tr for the header
@@ -75,14 +69,12 @@ function makeHeaderRow () {   //function for headerRow
   trEl.appendChild(thEl);
   storeTable.appendChild(trEl); //append to table
 }
-makeHeaderRow();
 
 function makeAllStoreRow () {
   for (var i = 0; i < allStores.length; i++) {
     allStores[i].render();
   }
 }
-makeAllStoreRow();
 
 function makeFooterRow () {  //STRETCH GOAL! COMPLETE IN FREE TIME
   storeTable = document.getElementById('storeTable');
@@ -104,34 +96,52 @@ function makeFooterRow () {  //STRETCH GOAL! COMPLETE IN FREE TIME
     storeTable.appendChild(trEl);
   }
 }
-makeFooterRow();
 
+new Store('1st and Pike', 23, 65, 6.3);
+new Store('Sea Tac Airport', 3, 24, 1.2);
+new Store('Seattle Center', 11, 38, 3.7);
+new Store('Capitol Hill', 20, 23, 2.3);
+new Store('Alki', 2, 16, 4.6);
 // Begin code for form ************
 //Global variables for DOM access
-
-var cookieForm = document.getElementById('cookieForm');
-// var newStoreLocation = event.target.storeLocation.value;
-// var newMinCustomer = parseInt(event.target.minCustomer.value);
-// var newMaxCustomer = parseInt(event.target.maxCustomer.value);
-// var newAvgCookiesPerCustomer = parseInt(event.target.avgCookiesPerCustomer.value);
-
-// // This function is the event handler for the submission, this will pass value into constructor
 function handleNewStoreSubmit(event) {
   event.preventDefault(); //prevents reload of data
-  console.log('log of the event object', event);
+  // console.log('log of the event object', event);
 //   // console.log('log of the event.target', event.target);
-//   // console.log('log of the event.target.storeLocation', event.target.storeLocation);
-//   console.log('log of the event.target.storeLocation.value', event.target.storeLocation.value);
+  // console.log('log of the event.target.storeLocation', event.target.storeLocation);
+  console.log('form button was clicked!');
+  console.log('log of the event.target.storeLocation.value', event.target.storeLocation.value);
   if (!event.target.storeLocation.value || !event.target.minCustomer.value || !event.target.maxCustomer.value || !event.target.avgCookiesPerCustomer.value) {
-    return alert('Fields cannot be empty!');  //does not allow empty values
-    //push or render values to table
+    return alert('Fields cannot be empty!');
   }
 
-event.target.storeLocation.value = null; //clears the form fields
-event.target.minCustomer.value = null;
-event.target.maxCustomer.value = null;
-event.target.avgCookiesPerCustomer.value = null;
+  var newStoreLocation = event.target.storeLocation.value;
+  var newMinCustomer = parseInt(event.target.minCustomer.value);
+  var newMaxCustomer = parseInt(event.target.maxCustomer.value);
+  var newAvgCookiesPerCustomer = parseInt(event.target.avgCookiesPerCustomer.value);
+
+  function nukeTable() {
+    storeTable.innerHTML = '';
+    console.log('You just cleared the table!');
+  }
+  nukeTable();
+
+  var newStore = new Store (newStoreLocation, newMinCustomer, newMaxCustomer, newAvgCookiesPerCustomer);
+  allStores.push(newStore);
+
+  event.target.storeLocation.value = null; //clears the form fields
+  event.target.minCustomer.value = null;
+  event.target.maxCustomer.value = null;
+  event.target.avgCookiesPerCustomer.value = null;
+  makeHeaderRow();
+  makeAllStoreRow();
+  makeFooterRow();
 
 }
-  //event listener
+
+makeHeaderRow();
+makeAllStoreRow();
+makeFooterRow();
+
+var cookieForm = document.getElementById('cookieForm');
 cookieForm.addEventListener('submit', handleNewStoreSubmit);
