@@ -31,7 +31,7 @@ function Store(location,minCustPerHour,maxCustPerHour,avgCookiesPerCust) {
   allStores.push(this);
 
   this.render = function () {
-    storeTable = document.getElementById('storeTable');
+    // storeTable = document.getElementById('storeTable');
     var trEl = document.createElement('tr');
 
     tdEl = document.createElement('td');
@@ -126,16 +126,16 @@ function handleNewStoreSubmit(event) {
   }
   nukeTable();
 
-  var newStore = new Store (newStoreLocation, newMinCustomer, newMaxCustomer, newAvgCookiesPerCustomer);
-  allStores.push(newStore);
+  new Store (newStoreLocation, newMinCustomer, newMaxCustomer, newAvgCookiesPerCustomer);
+
+  makeHeaderRow();
+  makeAllStoreRow();
+  makeFooterRow();
 
   event.target.storeLocation.value = null; //clears the form fields
   event.target.minCustomer.value = null;
   event.target.maxCustomer.value = null;
   event.target.avgCookiesPerCustomer.value = null;
-  makeHeaderRow();
-  makeAllStoreRow();
-  makeFooterRow();
 
 }
 
