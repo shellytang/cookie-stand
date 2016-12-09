@@ -105,8 +105,6 @@ function makeFooterRow () {  //STRETCH GOAL! COMPLETE IN FREE TIME
   trEl.appendChild(thEl);
   storeTable.appendChild(trEl);
   // storeTable = document.getElementById('storeTable');
-
-
 }
 // create instances
 new Store('1st and Pike', 23, 65, 6.3);
