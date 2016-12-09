@@ -1,6 +1,6 @@
 'use strict';
 
-var hours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm']
+var hours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm']
 var allStores = []
 var storeTable = document.getElementById('storeTable');
 function Store(location,minCustPerHour,maxCustPerHour,avgCookiesPerCust) {
@@ -72,7 +72,7 @@ function makeFooterRow () {  //STRETCH GOAL! COMPLETE IN FREE TIME
   storeTable = document.getElementById('storeTable');
   var trEl = document.createElement('tr'); //create tr for the header
   var thEl = document.createElement('th');
-  thEl.textContent = 'Totals';
+  thEl.textContent = 'Totals:';
   trEl.appendChild(thEl);
   storeTable.appendChild(trEl);
 
