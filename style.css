@@ -67,10 +67,6 @@ input {
   width: 100px;
   font-size: 14px;
 }
-
-*{
-  outline: 1px dotted orange;
-}
 header {
   background: #A4C2A5;
 }
