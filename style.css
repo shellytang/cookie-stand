@@ -1,10 +1,11 @@
+* {
+    font-family: 'Fjalla One', sans-serif;
+}
 body {
   background: #E6EBE0;
-  font-family: 'Fjalla One', sans-serif;
 }
 h1 {
   text-align: center;
-  font-family: 'Fjalla One', sans-serif;
 }
 table {
   border-spacing: 0px;
@@ -17,7 +18,6 @@ th, td {
   text-align: center;
   border: 1px solid black;
   padding: 8px 15px 8px 15px;
-  font-family: 'Fjalla One', sans-serif;
 }
 tr:first-child {
   background: #A4C2A5;
@@ -26,7 +26,6 @@ tr:hover {
   background-color: #F6E7CB;
 }
 form {
-  font-family: 'Fjalla One', sans-serif;
   font-size: 14px;
 }
 fieldset {
@@ -68,14 +67,88 @@ input {
   width: 100px;
   font-size: 14px;
 }
-
-.header {
-  font-family: font-family: 'Fjalla One', sans-serif;
+header {
+  background: #A4C2A5;
 }
-.retail {
-  width: 20%;
+.headertitle {
+  text-align: center;
+  padding-bottom: 10px;
+}
+.headerimage {
+  width: 30%;
   display: block;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+}
+.about {
+  width: 960px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.aboutimage {
+  width: 426px;
+  height: 240px;
   float: left;
-  /*margin-left: auto;
-  margin-right: auto;*/
+  margin-left: 20px;
+  outline: 1px solid black;
+}
+.aboutcontent {
+  width: 350px;
+  float: right;
+  margin-right: 130px;
+}
+.merch {
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.swag {
+  width: 175px;
+  height: 175px;
+  float: left;
+  padding: 10px;
+}
+figcaption {
+  text-align: center;
+}
+.lastsection {
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.locations{
+  display: inline-block;
+  margin-top: 80px;
+  margin-left: 100px;
+  width: 400px;
+}
+.events{
+  display: inline-block;
+  width: 400px;
+  margin-top: 80px;
+}
+.footerimage {
+  width: 200px;
+  display: block;
+  margin: 5px auto 0 auto;
+  padding-top: 10px;
+}
+footer {
+  display: block;
+  color: #ED6A5A;
+  background-color: #A4C2A5;
+}
+footer p {
+  text-align: center;
+  font-size: 18px;
+  padding: 5px;
+}
+.retailheading {
+  color: #ED6A5A;
+}
+a {
+  color: #5CA4A9;
 }
