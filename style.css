@@ -1,6 +1,6 @@
-/** {
-  outline: 1px dotted orange
-}*/
+* {
+    font-family: 'Fjalla One', sans-serif;
+}
 body {
   background: #E6EBE0;
   font-family: 'Fjalla One', sans-serif;
@@ -72,8 +72,7 @@ input {
   font-size: 14px;
 }
 header {
-  font-family: font-family: 'Fjalla One', sans-serif;
-  height: 150px;
+  font-family: 'Fjalla One', sans-serif;
   background: #A4C2A5;
 }
 main {
@@ -81,18 +80,20 @@ main {
   margin-left: auto;
   margin-right: auto;
 }
-.headerimage {
-  height: 70%;
-}
 .headertitle {
-  height: 150px;
-  display: inline-block;
-  position: absolute;
-  margin-left: 150px;
-  margin-top: 50px;
+  text-align: center;
+  font-family: 'Fjalla One', sans-serif;
+  padding-bottom: 10px;
+}
+.headerimage {
+  width: 30%;
+  display: block;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
 }
 .about {
-  /*outline: solid black;*/
   width: 960px;
   height: 300px;
 }
@@ -101,6 +102,7 @@ main {
   height: 240px;
   float: left;
   margin-left: 20px;
+  outline: 1px solid black;
 }
 .aboutcontent {
   width: 350px;
@@ -112,9 +114,6 @@ main {
   margin-top: 70px;
   margin-left: 600px;
 }
-.merch {
-
-}
 .swag {
   width: 175px;
   height: 175px;
@@ -123,4 +122,39 @@ main {
 }
 figcaption {
   text-align: center;
+}
+.locations{
+  display: inline-block;
+  margin-top: 80px;
+  margin-left: 100px;
+  width: 400px;
+}
+.events{
+  display: inline-block;
+  width: 400px;
+  margin-top: 80px;
+}
+.footerimage {
+  width: 200px;
+  display: block;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+}
+footer {
+  display: block;
+  color: #ED6A5A;
+  background-color: #A4C2A5;
+}
+footer p {
+  text-align: center;
+  font-size: 18px;
+  padding: 5px;
+}
+.retailheading {
+  color: #ED6A5A;
+}
+a {
+  color: #5CA4A9;
 }
