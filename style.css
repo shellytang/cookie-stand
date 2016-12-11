@@ -84,21 +84,21 @@ header {
 }
 .about {
   width: 960px;
-  height: 300px;
+  height: 400px;
   margin-left: auto;
   margin-right: auto;
 }
 .aboutimage {
-  width: 426px;
-  height: 240px;
-  float: left;
-  margin-left: 20px;
+  width: 400px;
+  float: right;
+  margin-right: 80px;
+  margin-top: 80px;
   outline: 1px solid black;
 }
 .aboutcontent {
-  width: 350px;
-  float: right;
-  margin-right: 130px;
+  width: 450px;
+  height: 400px;
+  float: left;
 }
 .merch {
   width: 960px;
@@ -119,16 +119,24 @@ figcaption {
   margin-left: auto;
   margin-right: auto;
 }
-.locations{
-  display: inline-block;
+.events {
   margin-top: 80px;
   margin-left: 100px;
-  width: 400px;
+  height: 400px;
+  width: 250px;
+  float: left;
 }
-.events{
-  display: inline-block;
-  width: 400px;
+.locations {
+  height: 400px;
+  width: 250px;
   margin-top: 80px;
+  float: left;
+}
+.storehours_contact {
+  height: 400px;
+  width: 250px;
+  margin-top: 80px;
+  float: left;
 }
 .footerimage {
   width: 200px;
@@ -136,10 +144,15 @@ figcaption {
   margin: 5px auto 0 auto;
   padding-top: 10px;
 }
+.social {
+  width: 30px;
+  height: 30px;
+}
 footer {
   display: block;
   color: #ED6A5A;
   background-color: #A4C2A5;
+  clear: both;
 }
 footer p {
   text-align: center;
